@@ -1,0 +1,8 @@
+.vscode
+.idea
+
+_site
+deno.lock
+
+# That's an empty shim I use to force in auto-comp w/ Deno
+tailwind.config.js

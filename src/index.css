@@ -1,0 +1,190 @@
+@import url("./98.css");
+@import url("./font.css");
+@tailwind utilities;
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+@keyframes roll-in {
+    from {
+        transform: translateY(-400%) rotate(-360deg);
+    }
+
+    to {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+@keyframes flicker {
+    from {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    to {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@keyframes neon-flicker {
+
+    0%,
+    19.999%,
+    22%,
+    62.999%,
+    64%,
+    64.999%,
+    70%,
+    100% {
+        opacity: 0.9;
+
+    }
+
+    20%,
+    21.999%,
+    63%,
+    63.999%,
+    65%,
+    69.999% {
+        opacity: 0.4;
+    }
+}
+
+
+@keyframes snap {
+    to {
+        visibility: visible;
+    }
+}
+
+@keyframes levitate {
+
+    0%,
+    100% {
+        transform: none;
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+
+    50% {
+        transform: translateY(var(--offset));
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+@keyframes infinite-scroll {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -100% 0;
+    }
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0px;
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+}
+
+.waves {
+    background-image: linear-gradient(to bottom right, #BE6FFF, #FFC4FF);
+
+}
+
+#pastel-circle {
+    animation: 1.75s roll-in ease-in;
+    z-index: 9999;
+}
+
+#pastel-circle-bg {
+    animation: 1.75s roll-in ease-in, 3s neon-flicker ease-in infinite 2s;
+}
+
+#checker {
+    --offset: -20%;
+    background-image: url("assets/checker_loop_bluring.png");
+    background-repeat: repeat-x;
+    background-size: 128px;
+    opacity: 50%;
+    mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+    animation: 5s levitate infinite;
+}
+
+#signals {
+    background-image: url("assets/signals.png");
+    background-repeat: repeat-x;
+    background-size: 256px;
+    background-position: 0 0;
+    animation: 5s infinite-scroll infinite linear;
+}
+
+.flicker {
+    animation: 1s flicker infinite;
+}
+
+#about>h1 {
+    animation: 3s snap ease-in forwards;
+    animation-delay: 1s;
+}
+
+#about>h1>span {
+    animation: 0.5s snap ease-in forwards;
+    animation-delay: 2s;
+}
+
+#about>p {
+    animation: 0.5s snap ease-in forwards;
+    animation-delay: 3s;
+}
+
+.levitate {
+    animation: 4s levitate infinite;
+    animation-delay: 2.5s;
+}
+
+#about-holder {
+    --offset: -10%;
+}
+
+#lucy-frame {
+    --offset: 10%;
+}
+
+#music-showcase {}
+
+#music-showcase>h1 {
+    font-family: "Sketchit";
+}
+
+#music-showcase>h1::before {
+    display: block;
+    transform: translateY(100%);
+    content: "Here is some music I have made!";
+    color: transparent;
+    text-shadow: #BE6FFF 0px 0px 64px;
+    z-index: 1;
+}
+
+#music-showcase>h1::after {
+    display: block;
+    transform: translateY(-100%);
+    content: "Here is some music I have made!";
+    background-image: url("assets/purple_grad_masking.png");
+    background-position: 1rem 1rem;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#music-showcase>div {
+    background-image: url("assets/Breakcore_Yassification.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 50%, transparent 100%);
+}

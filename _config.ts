@@ -16,4 +16,6 @@ site.use(jsx_preact())
 site.use(tailwindcss())
 site.use(postcss())
 
+site.copy("assets")
+
 export default site
