@@ -17,12 +17,12 @@
 }
 
 @keyframes flicker {
-    from {
+    0%, 100% {
         opacity: 0;
         visibility: hidden;
     }
 
-    to {
+    50% {
         opacity: 1;
         visibility: visible;
     }

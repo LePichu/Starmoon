@@ -1,7 +1,14 @@
 export const layout = "main.tsx"
 
-const About = () => (
-	<div class="window mt-24 levitate" id="about-holder">
+interface AboutProps {
+	levitate: boolean
+}
+
+const About = (props: AboutProps) => (
+	<div
+		class={`window mt-24 ${props.levitate ? "levitate" : ""} w-full`}
+		id="about-holder"
+	>
 		<div class="title-bar p-2">
 			<div class="title-bar-text text-xl">
 				Starmoon
@@ -31,7 +38,7 @@ const Waves = () => (
 		overflow="auto"
 		shape-rendering="auto"
 		fill="#ffffff"
-        class="-mt-[16rem]"
+		class="-mt-[16rem]"
 	>
 		<defs>
 			<path
@@ -71,16 +78,26 @@ export default function () {
 				/>
 				<div class="flex w-full h-16 mt-32" id="signals">{" "}</div>
 				<div class="hidden md:grid grid-cols-2 gap-24 px-40 -mt-52">
-					<About />
+					<About levitate={true} />
 					<img
 						src="/assets/starmoon_gal_outline.png"
 						class="h-[150%] window bg-transparent levitate"
 						id="lucy-frame"
 					/>
 				</div>
+				<div class="flex flex-col md:hidden p-4">
+					<img
+						src="/assets/starmoon_gal_outline.png"
+						class="w-full window bg-transparent levitate mt-4 -mb-24"
+					/>
+					<About levitate={false} />
+				</div>
 			</section>
 			<Waves />
-			<section class="flex flex-col items-center justify-center md:px-40 z-20" id="music-showcase">
+			<section
+				class="flex flex-col items-center justify-center md:px-40 z-20"
+				id="music-showcase"
+			>
 				<h1 class="text-[3rem] md:text-[6rem] m-0 p-4 -mt-48 md:-mt-24 text-center">
 					Here is some music I have made!
 				</h1>
