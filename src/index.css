@@ -157,6 +157,15 @@ body {
     --offset: 10%;
 }
 
+/* 
+#circular-pattern {
+  transform: rotateX(22.5deg);
+  background-image: url("assets/circular_pattern.png");
+  background-repeat: repeat;
+  background-size: 24em;
+} 
+*/
+
 #music-showcase {}
 
 #music-showcase>h1 {
@@ -182,9 +191,25 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-#music-showcase>div {
+#music-showcase>div:first-of-type {
     background-image: url("assets/Breakcore_Yassification.jpeg");
     background-repeat: no-repeat;
     background-position: center;
     mask-image: linear-gradient(to bottom, transparent 0%, black 50%, transparent 100%);
+}
+
+#tilted-spikes {
+  background-image: url("assets/rounded_triangle.png");
+  background-repeat: repeat-x;
+  background-size: 4em 4em;
+}
+
+#connections {
+  background-image: url("assets/connections_bg.png");
+  background-repeat: repeat;
+  background-size: 8em 8em;
+}
+
+#connections > div {
+  backdrop-filter: blur(16px);
 }

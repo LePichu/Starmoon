@@ -28,6 +28,53 @@ const About = (props: AboutProps) => (
 	</div>
 )
 
+interface Album {
+	name: string
+	price: string
+	cover: string
+}
+
+const MusicAlbums = () => {
+	const albums = [
+		{
+			name: "Starmoon",
+			price: "free (or: €2.99)",
+			cover: "/assets/albums/starmoon.png",
+		},
+		{
+			name: "Breakcore Yassification",
+			price: "free (or €2.99)",
+			cover: "/assets/albums/breakcore_yassification.jpg",
+		},
+		{
+			name: "Ashley",
+			price: "free (or: €1.99)",
+			cover: "/assets/albums/ashley.png",
+		},
+	]
+
+	return (
+		<>
+			{albums.map((album) => {
+				return (
+					<>
+						<div class="flex flex-col gap-4 p-8 z-99 isolate">
+							<img
+								src={album.cover}
+								class="aspect-square max-w-full rounded-xl"
+							/>
+							<h1 class="m-0 mt-4 uppercass text-4xl font-medium">
+								{album.name}
+							</h1>
+							<p class="m-0 uppercase text-2xl font-thin">{album.price}</p>
+						</div>
+					</>
+				)
+			})}
+		</>
+	)
+}
+
 const Waves = () => (
 	<svg
 		width="100%"
@@ -59,6 +106,10 @@ const Waves = () => (
 		</g>
 	</svg>
 )
+
+const TiltedSpikes = () => {
+	return <div class="flex h-16 w-full" id="tilted-spikes">{" "}</div>
+}
 
 export default function () {
 	return (
@@ -101,10 +152,19 @@ export default function () {
 				<h1 class="text-[3rem] md:text-[6rem] m-0 p-4 -mt-48 md:-mt-24 text-center">
 					Here is some music I have made!
 				</h1>
-				<div class="flex flex-row justify-around h-[32rem] -mt-48 w-full">
+				<div class="flex flex-row justify-around h-[32rem] -mt-48 w-full z-0 isolate">
 					{" "}
 				</div>
 				<br />
+				<div class="flex flex-col gap-4 -mt-48 md:hidden w-full mb-16">
+					<MusicAlbums />
+				</div>
+			</section>
+			<section class="flex flex-col h-[32rem]" id="connections">
+				<div class="flex flex-col w-full h-full">
+					<TiltedSpikes />
+					<div class="flex flex-1 blur-3xl p-4">{"Test"}</div>
+				</div>
 			</section>
 		</>
 	)
