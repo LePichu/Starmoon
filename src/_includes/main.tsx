@@ -16,7 +16,8 @@ export default function (props: Props) {
 						content="width=device-width, initial-scale=1.0"
 					/>
 
-					<link rel="icon" href="/assets/icon.png" />
+					<link rel="icon" href="/assets/starmoon_gal_outline.png" />
+					<link rel="stylesheet" href="/font.css" />
 					<link rel="stylesheet" href="/index.css" />
 
 					<title>Starmoon's Website~!</title>

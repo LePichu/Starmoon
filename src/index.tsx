@@ -35,7 +35,7 @@ interface Album {
 }
 
 const MusicAlbums = () => {
-	const albums = [
+	const albums: Album[] = [
 		{
 			name: "Starmoon",
 			price: "free (or: €2.99)",
@@ -58,20 +58,31 @@ const MusicAlbums = () => {
 			{albums.map((album) => {
 				return (
 					<>
-						<div class="flex flex-col gap-4 p-8 z-99 isolate">
+						<div class="flex flex-col gap-4 md:gap-0 p-8 z-99 isolate">
 							<img
 								src={album.cover}
-								class="aspect-square max-w-full rounded-xl"
+								class="max-w-full md:h-80 md:w-80 rounded-xl m-auto"
 							/>
-							<h1 class="m-0 mt-4 uppercass text-4xl font-medium">
+							<h1 class="m-0 mt-4 md:mt-8 uppercass text-4xl font-semibold md:text-white">
 								{album.name}
 							</h1>
-							<p class="m-0 uppercase text-2xl font-thin">{album.price}</p>
+							<p class="m-0 uppercase text-2xl font-thin md:text-white">
+								{album.price}
+							</p>
 						</div>
 					</>
 				)
 			})}
 		</>
+	)
+}
+
+const Socials = () => {
+	return (
+		<div class="flex flex-col gap-2 text-center hover:shadow-2xl">
+			<i class="ri-discord-fill text-8xl"></i>
+			<p class="m-0 text-2xl">Discord</p>
+		</div>
 	)
 }
 
@@ -128,7 +139,7 @@ export default function () {
 					id="pastel-circle-bg"
 				/>
 				<div class="flex w-full h-16 mt-32" id="signals">{" "}</div>
-				<div class="hidden md:grid grid-cols-2 gap-24 px-40 -mt-52">
+				<div class="hidden md:grid grid-cols-2 justify-items-end gap-24 px-40 -mt-52">
 					<About levitate={true} />
 					<img
 						src="/assets/starmoon_gal_outline.png"
@@ -149,11 +160,13 @@ export default function () {
 				class="flex flex-col items-center justify-center md:px-40 z-20"
 				id="music-showcase"
 			>
-				<h1 class="text-[3rem] md:text-[6rem] m-0 p-4 -mt-48 md:-mt-24 text-center">
+				<h1 class="text-[3rem] md:text-[6rem] m-0 p-4 -mt-48 md:-mt-24 text-center z-99">
 					Here is some music I have made!
 				</h1>
-				<div class="flex flex-row justify-around h-[32rem] -mt-48 w-full z-0 isolate">
-					{" "}
+				<div class="flex flex-row justify-between items-center h-[32rem] md:h-[64rem] -mt-48 w-full z-0 isolate">
+				</div>
+				<div class="hidden md:flex flex-row justify-between items-center h-[32rem] md:h-[64rem] -mt-[64rem] w-full z-0 isolate backdrop-blur-xl">
+					<MusicAlbums />
 				</div>
 				<br />
 				<div class="flex flex-col gap-4 -mt-48 md:hidden w-full mb-16">
@@ -163,9 +176,22 @@ export default function () {
 			<section class="flex flex-col h-[32rem]" id="connections">
 				<div class="flex flex-col w-full h-full">
 					<TiltedSpikes />
-					<div class="flex flex-1 blur-3xl p-4">{"Test"}</div>
+					<div class="flex flex-col md:flex-row flex-1 justify-between items-center p-4 md:px-64">
+						<Socials />
+					</div>
 				</div>
 			</section>
+			<footer class="flex flex-col min-h-[4rem] p-4 md:p-8 md:px-40 text-center text-xl">
+				<p>
+					© 2023 Website by LePichu, Content by/for Starmoon, made with 💜 and
+					Estrogen Patches. All Rights Reserved, licensed under MIT License and
+					Source Available on{" "}
+					<a class="inline text-white no-underline visited:text-white" target="_blank" href="https://github.com/LePichu/Starmoon">
+						<i class="ri-github-fill opacity-50 hover:opacity-100 text-4xl transition-all">
+						</i>
+					</a>.
+				</p>
+			</footer>
 		</>
 	)
 }

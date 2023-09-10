@@ -1,4 +1,4 @@
-@import url("./98.css");
+@import url("./mods.css");
 @import url("./font.css");
 @tailwind utilities;
 
@@ -17,7 +17,9 @@
 }
 
 @keyframes flicker {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0;
         visibility: hidden;
     }
@@ -80,6 +82,15 @@
 
     to {
         background-position: -100% 0;
+    }
+}
+
+@keyframes text-shadow-bulging {
+    0%, 100% {
+        text-shadow: #BE6FFF 0px 0px 32px;
+    }
+    50% {
+        text-shadow: #BE6FFF 0px 0px 64px;
     }
 }
 
@@ -157,16 +168,18 @@ body {
     --offset: 10%;
 }
 
-/* 
+/*
 #circular-pattern {
   transform: rotateX(22.5deg);
   background-image: url("assets/circular_pattern.png");
   background-repeat: repeat;
   background-size: 24em;
-} 
+}
 */
 
-#music-showcase {}
+#music-showcase h1, #music-showcase p, footer {
+    font-family: "IBM Plex Sans", system-ui;
+}
 
 #music-showcase>h1 {
     font-family: "Sketchit";
@@ -178,6 +191,7 @@ body {
     content: "Here is some music I have made!";
     color: transparent;
     text-shadow: #BE6FFF 0px 0px 64px;
+    animation: 2.5s text-shadow-bulging infinite;
     z-index: 1;
 }
 
@@ -199,17 +213,26 @@ body {
 }
 
 #tilted-spikes {
-  background-image: url("assets/rounded_triangle.png");
-  background-repeat: repeat-x;
-  background-size: 4em 4em;
+    background-image: url("assets/rounded_triangle.png");
+    background-repeat: repeat-x;
+    background-size: 4em 4em;
 }
 
 #connections {
-  background-image: url("assets/connections_bg.png");
-  background-repeat: repeat;
-  background-size: 8em 8em;
+    background-image: url("https://f4.bcbits.com/img/a0848228695_2.jpg");
+    background-repeat: repeat;
+    background-size: 16em 16em;
 }
 
-#connections > div {
-  backdrop-filter: blur(16px);
+#connections>div {
+    backdrop-filter: blur(16px);
+}
+
+/* Forced Tailwind Shim */
+.backdrop-blur-xl {
+    backdrop-filter: blur(16px);
+}
+
+.z-99 {
+    z-index: 99;
 }
